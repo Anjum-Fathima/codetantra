@@ -1,0 +1,13 @@
+.TextArea {
+  width: 100%;
+  height: 99vh;
+  padding: 0px !important;
+  border: 0px !important;
+  font-size: 25px;
+}
+
+.CountsArea {
+  margin-top: -62px;
+  margin-left: 75%;
+  font-size: 25px;
+}

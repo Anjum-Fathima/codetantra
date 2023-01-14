@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+    textarea {
+        resize: none;
+    }
+    body{
+      margin: 0px !important;
+      height: 100%;
+    }
+    </style>
+    <title>Code</title>
+    <link rel="stylesheet" href="./code.css" />
+  <body class="body">  
+    <textarea class="TextArea" id="textarea_id" placeholder="Type here" onkeyup="count()"></textarea>
+    <!-- <label id="Text"></label> -->
+    <div class="CountsArea">
+      <span>Counts Area: </span>
+      <span id="charcount_id">0</span>C 
+      <span id="wordcount_id">0</span>W 
+      <span id="linecount_id">0</span>L 
+    </div>
+  </body>
+  <script text="text/javascript">
+       function count() {
+            var txt = document.getElementById("textarea_id").value;
+            var wordCounter = 0;
+            var charCounter = 0;
+            var lineCounter = 0;
+
+            for (var i = 0; i < txt.length; i++) {
+              //calculation of words and characters
+                 if (txt[i] == ' ' || txt[i] == "\n") {
+                   wordCounter++;
+                   //if we give multiple spaces || multiple blank lines
+                   if(txt[i-1]== ' ' || txt[i-1]=="\n"){
+                    wordCounter--;
+                   }
+                 } else {
+                    charCounter++;
+                 }
+
+              //calculation of lines
+                 if (txt[i] == "\n") {
+                   lineCounter++;
+                   //at the end of a line if we are adding space
+                   if(txt[i-1] == null){
+                    wordCounter--;
+                   }
+                 }
+            }
+
+            document.getElementById("charcount_id").innerHTML = charCounter;
+            document.getElementById("wordcount_id").innerHTML = wordCounter;
+            document.getElementById("linecount_id").innerHTML = lineCounter;
+         }
+  </script>
+</html>
